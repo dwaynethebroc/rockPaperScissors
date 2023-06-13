@@ -1,5 +1,7 @@
+let computerSelection; 
+let playerSelection;
+
 function getComputerChoice(){
-    let computerSelection; 
 
     let randomChoice = Math.floor((Math.random()* 99) + 1);
     console.log(randomChoice);
@@ -37,11 +39,11 @@ function getPlayerChoice(){
         let remainingLetters = str2.substring(1);
         console.log(remainingLetters);
    
-        let playerChoice = firstLetter + remainingLetters; 
-        console.log(playerChoice);
+        playerSelection = firstLetter + remainingLetters; 
+        console.log(playerSelection);
    
-        window.alert(`You have entered '${playerChoice}'`); 
-        return playerChoice;  
+        window.alert(`You have entered '${playerSelection}'`); 
+        return playerSelection;  
      }
     else (
         getPlayerChoice()
@@ -49,8 +51,49 @@ function getPlayerChoice(){
 }
 
 
-getComputerChoice();
-getPlayerChoice();
+function singleRoundRPS(computerSelection, playerSelection){
+    playerSelection = getComputerChoice();
+    computerSelection = getPlayerChoice();
+
+    /* win logic */
+    if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
+        window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
+        window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
+    window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+    }
+    
+    /* tie logic */
+    else if (playerSelection === 'Rock' && computerSelection === 'Rock'){
+        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Paper'){
+        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Scissors'){
+        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+    }
+
+    /* lose logic */
+    else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
+        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
+        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
+        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+    }
+}
+
+singleRoundRPS(); 
+
+function game() {
+
+}
 
 
 /*
