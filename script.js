@@ -24,16 +24,14 @@ function getComputerChoice(){
 function getPlayerChoice(){
      let str1 = prompt("please enter an option between 'Rock', 'Paper', and 'Scissors'", '');
      console.log(str1);
-    
-     let str2 = toLowerCase(str1);
+
+     let str2 = str1.toLowerCase();
      console.log(str2);
 
-     if (str2 !== 'rock' || str2 !== 'paper' || str2 !== 'scissors'){
-        prompt("that was an incorrect response, please enter again an option between 'Rock', 'Paper', and 'Scissors'", '')
-        getPlayerChoice();
-     }
-     else {
-        let firstLetter = str2.toUpperCase(charAt(0));
+    if(str2 === 'rock' || str2 === 'paper' || str2 === 'scissors'){
+        let str3 = str2.charAt(0);
+        
+        let firstLetter = str3.toUpperCase();
         console.log(firstLetter);
    
         let remainingLetters = str2.substring(1);
@@ -42,10 +40,14 @@ function getPlayerChoice(){
         let playerChoice = firstLetter + remainingLetters; 
         console.log(playerChoice);
    
-        alert.message(`You have entered ${playerChoice}`);
-        return playerChoice; 
+        window.alert(`You have entered '${playerChoice}'`); 
+        return playerChoice;  
      }
+    else (
+        getPlayerChoice()
+    ) 
 }
+
 
 getComputerChoice();
 getPlayerChoice();
