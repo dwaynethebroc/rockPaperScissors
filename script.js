@@ -55,37 +55,42 @@ function singleRoundRPS(computerSelection, playerSelection){
     playerSelection = getComputerChoice();
     computerSelection = getPlayerChoice();
 
+    window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}' `)
+
+    console.log(playerSelection + ' ' + 'player');
+    console.log(computerSelection + ' ' + 'computer');
+
     /* win logic */
     if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
-        window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+        window.alert(`You have won -> '${playerSelection}' beats '${computerSelection}'`); 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
-        window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+        window.alert(`You have won -> '${playerSelection}' beats '${computerSelection}'`); 
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
-    window.alert(`You have won, '${playerSelection}' beats '${computerSelection}'`); 
+    window.alert(`You have won -> '${playerSelection}' beats '${computerSelection}'`); 
     }
     
     /* tie logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Rock'){
-        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+        window.alert(`You have tied -> '${playerSelection}' does not beat '${computerSelection}'`); 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Paper'){
-        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+        window.alert(`You have tied -> '${playerSelection}' does not beat '${computerSelection}'`); 
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Scissors'){
-        window.alert(`You have tied, '${playerSelection}' does not beat '${computerSelection}'`); 
+        window.alert(`You have tied ->  '${playerSelection}' does not beat '${computerSelection}'`); 
     }
 
     /* lose logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
-        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+        window.alert(`You have lost -> '${computerSelection}' beats '${playerSelection}'`); 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
-        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+        window.alert(`You have lost -> '${computerSelection}' beats '${playerSelection}'`); 
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
-        window.alert(`You have lost, '${computerSelection}' beats'${playerSelection}'`); 
+        window.alert(`You have lost -> '${computerSelection}' beats '${playerSelection}'`); 
     }
 }
 
