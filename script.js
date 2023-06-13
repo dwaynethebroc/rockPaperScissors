@@ -1,8 +1,8 @@
 let computerSelection; 
 let playerSelection;
-let wins = 0;
-let ties = 0;
-let losses = 0;
+let winsP = 0;
+let tiesP = 0;
+let lossesP = 0;
 
 function getComputerChoice(){
 
@@ -44,8 +44,7 @@ function getPlayerChoice(){
    
         playerSelection = firstLetter + remainingLetters; 
         console.log(playerSelection);
-   
-        window.alert(`You have entered '${playerSelection}'`); 
+    
         return playerSelection;  
      }
     else (
@@ -64,43 +63,43 @@ function singleRoundRPS(computerSelection, playerSelection){
     /* win logic */
     if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`);
-        return wins = wins + 1; 
+        return winsP = winsP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
-        return wins = wins + 1;
+        return winsP = winsP + 1;
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
-        return wins = wins + 1;
+        return winsP = winsP + 1;
     }
     
     /* tie logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Rock'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
-        return ties = ties + 1; 
+        return tiesP = tiesP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Paper'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
-        return ties = ties + 1;  
+        return tiesP = tiesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Scissors'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
-        return ties = ties + 1;  
+        return tiesP = tiesP + 1;  
     }
 
     /* lose logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
-        return losses = losses + 1;  
+        return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
-        return losses = losses + 1;  
+        return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
         window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
-        return losses = losses + 1;  
+        return lossesP = lossesP + 1;  
     }
 }
 
@@ -111,7 +110,35 @@ function game() {
     singleRoundRPS(); 
     singleRoundRPS(); 
     
-    window.alert(`You won ${wins} games \n Tied ${ties} games \n Lost ${losses} games`)
+    window.alert(`You won ${winsP} games \n Tied ${tiesP} games \n Lost ${lossesP} games \n \n The computer won ${0+lossesP} \n The computer tied ${0+tiesP} \n The computer lost ${0 + winsP}`)
+
+    if (winsP >= 3) {
+        window.alert(`YOU WON THE GAME!`);
+    }
+    else if ((tiesP >= 3) && (winsP > 1)) {
+        window.alert(`YOU WON THE GAME!`);
+    }
+    else if (tiesP === 4 && winsP === 1){
+        window.alert(`YOU WON THE GAME!`);
+    }
+
+    else if (lossesP >= 3) {
+        window.alert(`YOU LOST THE GAME!`);
+    }
+    else if ((tiesP === 3) && (lossesP === 2)) {
+        window.alert(`YOU LOST THE GAME!`);
+    }
+    else if ((tiesP === 4) && (lossesP === 1)){
+        window.alert(`YOU LOST THE GAME!`);
+    }
+
+    else if (winsP === lossesP) {
+        window.alert(`YOU TIED! \n \n NOBODY WINS!!!`);
+    }
+    else if (tiesP === 5){
+        window.alert(`YOU TIED 5 TIMES! \n \n NOBODY WINS!!!`);
+    }
+    
 }
 
 game();
