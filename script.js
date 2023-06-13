@@ -115,10 +115,10 @@ function game() {
     if (winsP >= 3) {
         window.alert(`YOU WON THE GAME!`);
     }
-    else if ((tiesP >= 3) && (winsP > 1)) {
+    else if ((tiesP === 3) && (winsP === 2)) {
         window.alert(`YOU WON THE GAME!`);
     }
-    else if (tiesP === 4 && winsP === 1){
+    else if ((tiesP === 4) && (winsP === 1)){
         window.alert(`YOU WON THE GAME!`);
     }
 
