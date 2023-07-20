@@ -45,9 +45,6 @@ let winsP = 0;
 let tiesP = 0;
 let lossesP = 0;
 
-let rockButton = document.querySelector("button.rock");
-let paperButton = document.querySelector("button.paper");
-let scissorsButton = document.querySelector("button.scissors");
 
 function getComputerChoice(){
 
@@ -74,8 +71,28 @@ function getComputerChoice(){
     return computerSelection;  
 }
 
-function getPlayerChoice(){
-     let str1 = prompt("please enter an option between 'Rock', 'Paper', and 'Scissors'", '');
+let choiceRock = 'rock';
+let choicePaper = 'paper';
+let choiceScissors = 'scissors';
+
+let rockButton = document.getElementById("rockButton")
+rockButton.addEventListener("click", () => {
+    getPlayerChoice(choiceRock);
+});
+
+let paperButton = document.getElementById("paperButton")
+paperButton.addEventListener("click", () => {
+    getPlayerChoice(choicePaper);
+});
+
+let scissorsButton = document.getElementById("scissorsButton")
+scissorsButton.addEventListener("click", () => {
+    getPlayerChoice(choiceScissors);
+});
+
+
+function getPlayerChoice(choice){
+     let str1 = choice;
      console.log(str1);
 
      let str2 = str1.toLowerCase();
@@ -95,9 +112,6 @@ function getPlayerChoice(){
     
         return playerSelection;  
      }
-    else (
-        getPlayerChoice();
-    ) 
 }
 
 
@@ -195,7 +209,7 @@ function game() {
     
 }
 
-game();
+
 
 
 
