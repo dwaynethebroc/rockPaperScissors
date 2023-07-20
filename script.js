@@ -45,6 +45,10 @@ let winsP = 0;
 let tiesP = 0;
 let lossesP = 0;
 
+let rockButton = document.querySelector("button.rock");
+let paperButton = document.querySelector("button.paper");
+let scissorsButton = document.querySelector("button.scissors");
+
 function getComputerChoice(){
 
     let randomChoice = Math.floor((Math.random()* 99) + 1);
