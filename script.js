@@ -62,6 +62,9 @@ function getComputerChoice(){
         computerSelection = 'Scissors';
         console.log(computerSelection);   
     }
+    else {
+        getComputerChoice();
+    }
 
     console.log(computerSelection);
     return computerSelection;  
@@ -89,7 +92,7 @@ function getPlayerChoice(){
         return playerSelection;  
      }
     else (
-        getPlayerChoice()
+        getPlayerChoice();
     ) 
 }
 
@@ -154,11 +157,7 @@ function singleRoundRPS(computerSelection, playerSelection){
 }
 
 function game() {
-    singleRoundRPS(); 
-    singleRoundRPS(); 
-    singleRoundRPS(); 
-    singleRoundRPS(); 
-    singleRoundRPS(); 
+    
     
     console.log(`You won ${winsP} games \n Tied ${tiesP} games \n Lost ${lossesP} games \n \n The computer won ${0+lossesP} \n The computer tied ${0+tiesP} \n The computer lost ${0 + winsP}`)
     window.alert(`You won ${winsP} games \n Tied ${tiesP} games \n Lost ${lossesP} games \n \n The computer won ${0+lossesP} \n The computer tied ${0+tiesP} \n The computer lost ${0 + winsP}`)
