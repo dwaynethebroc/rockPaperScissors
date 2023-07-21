@@ -49,6 +49,12 @@ let choiceRock = 'Rock';
 let choicePaper = 'Paper';
 let choiceScissors = 'Scissors';
 
+let chosenSelectionPlayer = document.getElementById("playerChoice");
+let chosenSelectionComputer = document.getElementById("computerChoice");
+let roundResult = document.getElementById("roundResult");
+let scoreCounter = document.getElementById("scoreCounter");
+let winnerResult = document.getElementById("winnerResult");
+
 function getComputerChoice(){
 
     let randomChoice = Math.floor((Math.random()* 99) + 1);
@@ -71,6 +77,7 @@ function getComputerChoice(){
     }
 
     console.log(computerSelection);
+    chosenSelectionComputer.innerText = `Computer's Choice: ${computerSelection}`;
     return computerSelection;  
 }
 
@@ -93,6 +100,7 @@ function getPlayerChoice(choice){
         playerSelection = firstLetter + remainingLetters; 
         console.log(playerSelection);
     
+        chosenSelectionPlayer.innerText = `Player's Choice: ${playerSelection}`;
         return playerSelection;  
      }
 }
