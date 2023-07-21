@@ -45,6 +45,9 @@ let winsP = 0;
 let tiesP = 0;
 let lossesP = 0;
 
+let choiceRock = 'rock';
+let choicePaper = 'paper';
+let choiceScissors = 'scissors';
 
 function getComputerChoice(){
 
@@ -71,9 +74,7 @@ function getComputerChoice(){
     return computerSelection;  
 }
 
-let choiceRock = 'rock';
-let choicePaper = 'paper';
-let choiceScissors = 'scissors';
+
 
 let rockButton = document.getElementById("rockButton")
 rockButton.addEventListener("click", () => {
@@ -113,7 +114,6 @@ function getPlayerChoice(choice){
         return playerSelection;  
      }
 }
-
 
 function singleRoundRPS(computerSelection, playerSelection){
     playerSelection = getComputerChoice();
