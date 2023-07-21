@@ -45,9 +45,9 @@ let winsP = 0;
 let tiesP = 0;
 let lossesP = 0;
 
-let choiceRock = 'rock';
-let choicePaper = 'paper';
-let choiceScissors = 'scissors';
+let choiceRock = 'Rock';
+let choicePaper = 'Paper';
+let choiceScissors = 'Scissors';
 
 function getComputerChoice(){
 
@@ -74,24 +74,6 @@ function getComputerChoice(){
     return computerSelection;  
 }
 
-
-
-let rockButton = document.getElementById("rockButton")
-rockButton.addEventListener("click", () => {
-    getPlayerChoice(choiceRock);
-});
-
-let paperButton = document.getElementById("paperButton")
-paperButton.addEventListener("click", () => {
-    getPlayerChoice(choicePaper);
-});
-
-let scissorsButton = document.getElementById("scissorsButton")
-scissorsButton.addEventListener("click", () => {
-    getPlayerChoice(choiceScissors);
-});
-
-
 function getPlayerChoice(choice){
      let str1 = choice;
      console.log(str1);
@@ -116,59 +98,58 @@ function getPlayerChoice(choice){
 }
 
 function singleRoundRPS(computerSelection, playerSelection){
-    playerSelection = getComputerChoice();
-    computerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
 
     console.log(playerSelection + ' ' + '= player');
     console.log(computerSelection + ' ' + '= computer');
 
     /* win logic */
     if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`);
         console.log(`winner: player`)
         return winsP = winsP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
         console.log(`winner: player`)
         return winsP = winsP + 1;
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
         console.log(`winner: player`)
         return winsP = winsP + 1;
     }
     
     /* tie logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Rock'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Paper'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Scissors'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1;  
     }
 
     /* lose logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
-        window.alert(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
@@ -209,6 +190,26 @@ function game() {
     
 }
 
+let rockButton = document.getElementById("rockButton")
+rockButton.addEventListener("click", () => {
+    getPlayerChoice(choiceRock);
+    getComputerChoice();
+    singleRoundRPS(undefined, choiceRock);
+});
+
+let paperButton = document.getElementById("paperButton")
+paperButton.addEventListener("click", () => {
+    getPlayerChoice(choicePaper);
+    getComputerChoice();
+    singleRoundRPS(undefined, choicePaper);
+});
+
+let scissorsButton = document.getElementById("scissorsButton")
+scissorsButton.addEventListener("click", () => {
+    getPlayerChoice(choiceScissors);
+    getComputerChoice();
+    singleRoundRPS(undefined, choiceScissors);
+});
 
 
 
