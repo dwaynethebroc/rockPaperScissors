@@ -1,0 +1,48 @@
+body {
+    background-image: url("vibingcat.gif");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    justify-self: center;
+    height: 200px;
+    width: 200px;
+}
+
+div {
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 1000px;
+    border-color: crimson;
+    border-width: 2px;;
+}
+
+p {
+    font-size: larger;
+}
+
+#playerChoice {
+    background-color: rgb(206, 248, 40);
+}
+
+#computerChoice{
+    background-color: aqua;
+}
+
+#roundResult {
+    background-color: coral;
+}
+
+#scoreCounter {
+    background-color: rgb(255, 141, 236);
+}
+
+#winnerResult {
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+}
