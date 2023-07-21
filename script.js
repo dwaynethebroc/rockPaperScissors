@@ -82,27 +82,12 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(choice){
-     let str1 = choice;
-     console.log(str1);
-
-     let str2 = str1.toLowerCase();
-     console.log(str2);
-
-    if(str2 === 'rock' || str2 === 'paper' || str2 === 'scissors'){
-        let str3 = str2.charAt(0);
-        
-        let firstLetter = str3.toUpperCase();
-        console.log(firstLetter);
-   
-        let remainingLetters = str2.substring(1);
-        console.log(remainingLetters);
-   
-        playerSelection = firstLetter + remainingLetters; 
+        let playerSelection = choice;
         console.log(playerSelection);
     
         chosenSelectionPlayer.innerText = `Player's Choice: ${playerSelection}`;
         return playerSelection;  
-     }
+     
 }
 
 function singleRoundRPS(computerSelection, playerSelection){
@@ -113,89 +98,81 @@ function singleRoundRPS(computerSelection, playerSelection){
 
     /* win logic */
     if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`);
+        roundResult.innerText = `You have won: '${playerSelection}' beats '${computerSelection}'`;
         console.log(`winner: player`)
+        
         return winsP = winsP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
+        roundResult.innerText = `You have won: '${playerSelection}' beats '${computerSelection}'`;
         console.log(`winner: player`)
         return winsP = winsP + 1;
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have won -> '${playerSelection}' beats '${computerSelection}'`); 
+        roundResult.innerText = `You have won: '${playerSelection}' beats '${computerSelection}'`;
         console.log(`winner: player`)
         return winsP = winsP + 1;
     }
     
     /* tie logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Rock'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        roundResult.innerText = `You have tied: '${playerSelection}' does not beat '${computerSelection}'`;
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1; 
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Paper'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        roundResult.innerText = `You have tied: '${playerSelection}' does not beat '${computerSelection}'`;
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Scissors'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have tied -> '${playerSelection}' does not beat '${computerSelection}'`);
+        roundResult.innerText = `You have tied: '${playerSelection}' does not beat '${computerSelection}'`;
         console.log(`winner: nobody`)
         return tiesP = tiesP + 1;  
     }
 
     /* lose logic */
     else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        roundResult.innerText = `You have lost: '${computerSelection}' beats '${playerSelection}'`;
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        roundResult.innerText = `You have lost: '${computerSelection}' beats '${playerSelection}'`;
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
-        console.log(`You have selected '${playerSelection}' -> the computer has chosen '${computerSelection}'\n \n You have lost -> '${computerSelection}' beats '${playerSelection}'`);
+        roundResult.innerText = `You have lost: '${computerSelection}' beats '${playerSelection}'`;
         console.log(`winner: computer`)
         return lossesP = lossesP + 1;  
     }
 }
 
+function scoreKeeper() {
+
+    scoreCounter.innerText = `Player's Score: \n \n Wins:  ${winsP} \n Ties: ${tiesP} \n Losses:   ${lossesP} \n \n Computer's Score: \n \n Wins: ${0+lossesP} \n Ties: ${0+tiesP} \n Losses: ${0 + winsP}`;
+    
+    if(winsP === 5 || lossesP === 5){
+        game();
+    }
+
+}
+
 function game() {
     
-    
-    console.log(`You won ${winsP} games \n Tied ${tiesP} games \n Lost ${lossesP} games \n \n The computer won ${0+lossesP} \n The computer tied ${0+tiesP} \n The computer lost ${0 + winsP}`)
-    window.alert(`You won ${winsP} games \n Tied ${tiesP} games \n Lost ${lossesP} games \n \n The computer won ${0+lossesP} \n The computer tied ${0+tiesP} \n The computer lost ${0 + winsP}`)
-
-    if (winsP >= 3) {
-        window.alert(`YOU WON THE GAME!`);
+    if(winsP === 5){
+        winnerResult.innerText = `YOU HAVE WON!!!`;
+        winsP = 0;
+        tiesP = 0;
+        lossesP = 0;
     }
-    else if ((tiesP === 3) && (winsP === 2)) {
-        window.alert(`YOU WON THE GAME!`);
+    else if (lossesP === 5){
+        winnerResult.innerText = `YOU HAVE LOST!!!`;
+        winsP = 0;
+        tiesP = 0;
+        lossesP = 0;
     }
-    else if ((tiesP === 4) && (winsP === 1)){
-        window.alert(`YOU WON THE GAME!`);
-    }
-
-    else if (lossesP >= 3) {
-        window.alert(`YOU LOST THE GAME!`);
-    }
-    else if ((tiesP === 3) && (lossesP === 2)) {
-        window.alert(`YOU LOST THE GAME!`);
-    }
-    else if ((tiesP === 4) && (lossesP === 1)){
-        window.alert(`YOU LOST THE GAME!`);
-    }
-
-    else if (winsP === lossesP) {
-        window.alert(`YOU TIED! \n \n NOBODY WINS!!!`);
-    }
-    else if (tiesP === 5){
-        window.alert(`YOU TIED 5 TIMES! \n \n NOBODY WINS!!!`);
-    }
-    
 }
 
 let rockButton = document.getElementById("rockButton")
@@ -203,6 +180,7 @@ rockButton.addEventListener("click", () => {
     getPlayerChoice(choiceRock);
     getComputerChoice();
     singleRoundRPS(undefined, choiceRock);
+    scoreKeeper();
 });
 
 let paperButton = document.getElementById("paperButton")
@@ -210,6 +188,7 @@ paperButton.addEventListener("click", () => {
     getPlayerChoice(choicePaper);
     getComputerChoice();
     singleRoundRPS(undefined, choicePaper);
+    scoreKeeper();
 });
 
 let scissorsButton = document.getElementById("scissorsButton")
@@ -217,7 +196,10 @@ scissorsButton.addEventListener("click", () => {
     getPlayerChoice(choiceScissors);
     getComputerChoice();
     singleRoundRPS(undefined, choiceScissors);
+    scoreKeeper();
 });
+
+
 
 
 
